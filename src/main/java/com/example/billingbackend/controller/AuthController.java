@@ -21,7 +21,7 @@ public class AuthController {
     public JwtUtil JwtUtil;
     private AuthenticationManager authenticationManager;
     UserService UserService;
-//    UserServiceImpl UserServiceImpl;
+
 
     @GetMapping("api/login")
     public ResponseEntity<String> jwtTest (@RequestBody LoginEtity requestData){
@@ -38,10 +38,8 @@ public class AuthController {
     }
 
     @PostMapping("api/register")
-    public String register(@RequestBody UserEntity request){
-        System.out.println("<<<<<<<<<< api data >>>>> " + request);
+    public ResponseEntity<String>  register(@RequestBody UserEntity request){
         UserService.userRegister(request);
-//        UserServiceImpl.userRegister(request);
-        return "ok";
+        return ResponseEntity.ok("Register successfully");
     }
 }
