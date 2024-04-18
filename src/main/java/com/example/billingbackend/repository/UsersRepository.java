@@ -7,9 +7,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UsersRepository extends JpaRepository<UserEntity, Long> {
-
-//    static List<Object> findfindByUserName(String username) {
-//    }
-
      Optional <UserEntity> findByUsername(String username);
 }
