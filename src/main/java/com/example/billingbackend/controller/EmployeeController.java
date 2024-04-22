@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin("*")
 public class EmployeeController {
 
     EmployeeService EmployeeService;
@@ -28,7 +29,8 @@ public class EmployeeController {
         return new ResponseEntity<> (res,HttpStatus.CREATED);
     }
 
-    @DeleteMapping("api/deleteEmployee")
+//    @DeleteMapping("api/deleteEmployee")
+    @PostMapping("api/deleteEmployee")
     public ResponseEntity<String> deleteEmployee(@RequestBody EmployeeEntity request){
         EmployeeService.deleteEmployee(request);
         return  new ResponseEntity<>("Deleted Employee", HttpStatus.OK);
